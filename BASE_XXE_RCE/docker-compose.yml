@@ -1,0 +1,16 @@
+services:
+  web:
+    image: php:8.0-apache
+    ports:
+      -"8888:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - internal-api
+
+internal-api:
+  image: python:3.9-slim
+  working_dir: /app
+  volumes:
+  - ./internal:/app
+  command: sh -c "pip install flask && python app.py"
